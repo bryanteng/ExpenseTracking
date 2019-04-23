@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ExpenseTracking.Models.cf.Expense>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                <h5>Expense</h5>
+            </th>
+            <th>
+                <h5>Expense Value</h5>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpenseName)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.ExpenseValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ExpenseId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ExpenseId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ExpenseId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+    <h2>Expense total = $@ViewBag.Message</h2>
+</body>
+</html>
