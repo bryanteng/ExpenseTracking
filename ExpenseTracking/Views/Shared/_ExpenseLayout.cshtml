@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @Html.Partial("_Menu")
+    <div class="navbar" style="background-color: greenyellow">
+        <div class="navbar-header">
+            <h2>Expenses</h2>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        @Html.Partial("_Footer")
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
