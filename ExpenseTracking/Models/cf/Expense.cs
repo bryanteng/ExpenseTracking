@@ -11,11 +11,12 @@ namespace ExpenseTracking.Models.cf
         public string ExpenseName { get; set; }
         public decimal ExpenseValue { get; set; }
         public DateTime Date { get; set; }
-
-
-        public static string DateString(DateTime dt)
+        public String DateString
         {
-            return dt.ToString("MMMM dd , yyyy");
+            get
+            {
+                return this.Date.ToString("MMMM dd , yyyy");
+            }
         }
     }
 }

@@ -39,11 +39,6 @@ namespace ExpenseTracking.Controllers
             {
                 return HttpNotFound();
             }
-            if (expense != null)
-            {
-                ViewBag.Message = Expense.DateString(expense.Date);
-            }
-
                 return View(expense);
         }
 

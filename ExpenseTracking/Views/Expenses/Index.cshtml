@@ -18,7 +18,7 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
+    <table class="table" id="table">
         <tr>
             <th>
                 <h5>Expense</h5>
@@ -27,21 +27,21 @@
                 <h5>Expense Value</h5>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
+                <h5>@Html.DisplayNameFor(model => model.Date)</h5>
             </th>
             <th></th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td class="expenseName">
                     @Html.DisplayFor(modelItem => item.ExpenseName)
                 </td>
-                <td>
+                <td class="expenseValue">
                     $@Html.DisplayFor(modelItem => item.ExpenseValue)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Date)
+                    @Html.DisplayFor(modelItem => item.DateString)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ExpenseId }) |
@@ -54,7 +54,7 @@
     </table>
     <h2>Expense total = $@ViewBag.Message</h2>
 
-    <canvas id="donutChart" style="border:3px solid #c3c3c3;">
+    <canvas id="pieChart" style="border:3px solid #c3c3c3;">
         Your browser does not support the HTML5 canvas tag.
     </canvas>
 
