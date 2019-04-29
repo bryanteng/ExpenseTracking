@@ -21,13 +21,15 @@
     <table class="table" id="table">
         <tr>
             <th>
-                <h5>Expense</h5>
+                <h5>@Html.DisplayNameFor(model => model.ExpenseName)</h5>
             </th>
             <th>
-                <h5>Expense Value</h5>
+                <h5>@Html.DisplayNameFor(model => model.ExpenseValue)</h5>
+                <button id="filterValue" onclick="filterValueButtonClick(@ViewBag.ExpenseData)"> Filter by Value</button>
             </th>
             <th>
                 <h5>@Html.DisplayNameFor(model => model.Date)</h5>
+                <button id="filterDate">Filter by Date</button>
             </th>
             <th></th>
         </tr>
@@ -41,7 +43,7 @@
                     $@Html.DisplayFor(modelItem => item.ExpenseValue)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DateString)
+                    @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ExpenseId }) |
@@ -59,6 +61,7 @@
     </canvas>
 
     <script src="~/Scripts/Expense/donutChart.js" type="text/javascript"></script>
+    <script src="~/Scripts/Expense/ValueFilter.js" type="text/javascript"></script>
 </body>
 
 </html>

@@ -23,7 +23,9 @@ namespace ExpenseTracking.Controllers
             {
                 total+= expense.ExpenseValue;
             }
-            ViewBag.Message = total;
+            ViewBag.Message = total;            
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(db.Expenses.ToList());
+            ViewBag.ExpenseData = json;
             return View(db.Expenses.ToList());
         }
 
