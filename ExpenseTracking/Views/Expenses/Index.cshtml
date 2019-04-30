@@ -21,15 +21,19 @@
     <table class="table" id="table">
         <tr>
             <th>
-                <h5>@Html.DisplayNameFor(model => model.ExpenseName)</h5>
+                <h5>
+                    @Html.ActionLink("Expense Name", "Index", new { sortOrder = ViewBag.NameSortParam })
+                </h5>
             </th>
             <th>
-                <h5>@Html.DisplayNameFor(model => model.ExpenseValue)</h5>
-                <button id="filterValue" onclick="filterValueButtonClick(@ViewBag.ExpenseData)"> Filter by Value</button>
+                <h5>
+                    @Html.ActionLink("Cost", "Index", new { sortOrder = ViewBag.ValueSortParam })
+                </h5>
             </th>
             <th>
-                <h5>@Html.DisplayNameFor(model => model.Date)</h5>
-                <button id="filterDate">Filter by Date</button>
+                <h5>
+                    @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParam })
+                </h5>
             </th>
             <th></th>
         </tr>

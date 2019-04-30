@@ -16,17 +16,48 @@ namespace ExpenseTracking.Controllers
         private EntityContext db = new EntityContext();
 
         // GET: Expenses
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
             decimal total = 0.0m;
-            foreach (Expense expense in db.Expenses.ToList())
+
+            ViewBag.NameSortParam = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "Name";
+            ViewBag.DateSortParam = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.ValueSortParam = sortOrder == "Value" ? "value_desc" : "Value";
+
+            var expenses = from s in db.Expenses
+                           select s;
+            switch (sortOrder)
             {
-                total+= expense.ExpenseValue;
+                case "name_desc":
+                    expenses = expenses.OrderByDescending(s => s.ExpenseName);
+                    break;
+                case "Name":
+                    expenses = expenses.OrderBy(s => s.Date);
+                    break;
+                case "Date":
+                    expenses = expenses.OrderBy(s => s.Date);
+                    break;
+                case "date_desc":
+                    expenses = expenses.OrderByDescending(s => s.Date);
+                    break;
+                case "value_desc":
+                    expenses = expenses.OrderByDescending(s => s.ExpenseValue);
+                    break;
+                case "Value":
+                    expenses = expenses.OrderBy(s => s.ExpenseValue);
+                    break;
+                default:
+                    expenses = expenses.OrderBy(s => s.Date);
+                    break;
             }
-            ViewBag.Message = total;            
-            string json = Newtonsoft.Json.JsonConvert.SerializeObject(db.Expenses.ToList());
-            ViewBag.ExpenseData = json;
-            return View(db.Expenses.ToList());
+
+            foreach (Expense expense in expenses)
+            {
+                total += expense.ExpenseValue;
+            }
+            ViewBag.Message = total;
+
+            return View(expenses.ToList());
         }
 
         // GET: Expenses/Details/5
