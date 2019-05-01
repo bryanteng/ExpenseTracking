@@ -16,7 +16,7 @@ namespace ExpenseTracking.Controllers
         private EntityContext db = new EntityContext();
 
         // GET: Expenses
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             decimal total = 0.0m;
 
@@ -26,6 +26,12 @@ namespace ExpenseTracking.Controllers
 
             var expenses = from s in db.Expenses
                            select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                expenses = expenses.Where(s => s.ExpenseName.Contains(searchString));
+            }
+
             switch (sortOrder)
             {
                 case "name_desc":

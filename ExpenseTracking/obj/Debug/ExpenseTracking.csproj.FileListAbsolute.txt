@@ -40,7 +40,7 @@ C:\Users\bteng\source\repos\ExpenseTracking\ExpenseTracking\bin\Microsoft.AI.Dep
 C:\Users\bteng\source\repos\ExpenseTracking\ExpenseTracking\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\bteng\source\repos\ExpenseTracking\ExpenseTracking\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\bteng\source\repos\ExpenseTracking\ExpenseTracking\bin\Microsoft.AI.Web.xml
-C:\Users\bteng\source\repos\ExpenseTracking\ExpenseTracking\obj\Debug\ExpenseTracking.csprojResolveAssemblyReference.cache
 C:\Users\bteng\source\repos\ExpenseTracking\ExpenseTracking\obj\Debug\ExpenseTracking.csproj.CoreCompileInputs.cache
 C:\Users\bteng\source\repos\ExpenseTracking\ExpenseTracking\obj\Debug\ExpenseTracking.dll
 C:\Users\bteng\source\repos\ExpenseTracking\ExpenseTracking\obj\Debug\ExpenseTracking.pdb
+C:\Users\bteng\source\repos\ExpenseTracking\ExpenseTracking\obj\Debug\ExpenseTracking.csprojResolveAssemblyReference.cache
