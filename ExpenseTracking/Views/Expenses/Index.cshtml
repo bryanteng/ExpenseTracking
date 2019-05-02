@@ -25,6 +25,20 @@
             <input type="submit" value="Search" />
         </p>
     }
+    @using (Html.BeginForm())
+    {
+        <p>
+            Enter a start date (MM/DD/YYYY): @Html.TextBox("StartDate")
+            <input type="submit" value="Search" />
+        </p>
+    }
+    @using (Html.BeginForm())
+    {
+        <p>
+            Enter an end date (MM/DD/YYYY): @Html.TextBox("EndDate")
+            <input type="submit" value="Search" />
+        </p>
+    }
     <table class="table" id="table">
         <tr>
             <th>

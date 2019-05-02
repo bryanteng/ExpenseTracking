@@ -16,7 +16,7 @@ namespace ExpenseTracking.Controllers
         private EntityContext db = new EntityContext();
 
         // GET: Expenses
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder, string searchString, DateTime? startDate, DateTime? endDate)
         {
             decimal total = 0.0m;
 
@@ -31,7 +31,18 @@ namespace ExpenseTracking.Controllers
             {
                 expenses = expenses.Where(s => s.ExpenseName.Contains(searchString));
             }
-
+            if (startDate.HasValue)
+            {
+                expenses = expenses.Where(x => x.Date >= startDate.Value);
+            }
+            if (endDate.HasValue)
+            {
+                expenses = expenses.Where(x => x.Date <= endDate.Value);
+            }
+            if (startDate.HasValue && endDate.HasValue)
+            {
+                expenses = (expenses.Where(x => startDate >= x.Date && x.Date <= endDate));
+            }
             switch (sortOrder)
             {
                 case "name_desc":
